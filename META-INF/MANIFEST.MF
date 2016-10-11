@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Chef-eclipse-plugin
+Bundle-SymbolicName: chef-eclipse-plugin;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: chef_eclipse_plugin.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.scala-lang.scala-library,
+ org.eclipse.ui.navigator,
+ org.eclipse.ui.navigator.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
