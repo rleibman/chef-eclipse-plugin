@@ -1,1 +1,12 @@
 - Externalize strings (https://cvalcarcel.wordpress.com/2009/07/19/writing-an-eclipse-plug-in-part-3-create-a-custom-project-in-eclipse-new-project-wizard-time-to-refactor/)
+- Add global configuration page that tells the plugin:
+	- Where the chef executable is installed (default to /usr/bin/chef)
+	- How to push to chef (berks, etc)
+	- Where to find berks
+	- Where to find vagrant
+- Berks methods 
+	- Berks install
+	- Berks upload
+- Kitchen
+	- Create kitchen file
+- Add "add chef nature" menu item
