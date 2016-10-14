@@ -148,5 +148,14 @@
             visibleInUI="true">
       </commonFilter>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="Chef"
+            class="chefeclipseplugin.preferences.GeneralPreferencePage"
+            id="chef-eclipse-plugin.generalpreference"
+            name="Chef Preferences">
+      </page>
+   </extension>
 
 </plugin>

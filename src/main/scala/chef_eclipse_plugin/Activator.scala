@@ -25,6 +25,12 @@ class Activator extends AbstractUIPlugin {
   override def start(context: BundleContext) {
     super.start(context)
     plugin = this
+    val store = getPreferenceStore()
+    store.setDefault("chefExecutablePath", "/usr/bin/chef")
+    store.setDefault("berksExecutablePath", "/usr/bin/berks")
+    store.setDefault("kitchenExecutablePath", "/usr/bin/kitchen")
+    store.setDefault("rubocopExecutablePath", "/usr/bin/rubocop")
+    store.setDefault("foodcriticExecutablePath", "/usr/bin/foodcritic")
   }
 
   override def stop(context: BundleContext) {

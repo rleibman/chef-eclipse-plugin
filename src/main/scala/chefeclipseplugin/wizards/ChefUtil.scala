@@ -30,8 +30,11 @@ import org.eclipse.ui.PlatformUI
 import org.eclipse.core.runtime.IPath
 import org.eclipse.swt.widgets.Display
 import scala.concurrent.Future
+import chef_eclipse_plugin.Activator
 
 object ChefUtil {
+    val store = Activator.getDefault().getPreferenceStore()
+    def chef = store.getString("chefExecutablePath")
 
   /*
    * -g GENERATOR_COOKBOOK_PATH, --generator-cookbook GENERATOR_COOKBOOK_PATH
@@ -55,7 +58,7 @@ object ChefUtil {
         try {
           val project = createBaseProject(projectName, location)
           addNature(project)
-          val command = Seq("/usr/bin/chef", "generate", "cookbook", projectName,
+          val command = Seq(chef, "generate", "cookbook", projectName,
             "-C", cookbookInfo.copyright,
             "-m", cookbookInfo.email,
             "-I", cookbookInfo.license.toString) ++
@@ -197,7 +200,7 @@ object ChefUtil {
     assert(info.name != null)
     assert(info.name.trim.nonEmpty)
 
-    val command = Seq("/usr/bin/chef", "generate", "recipe", info.name,
+    val command = Seq(chef, "generate", "recipe", info.name,
       "-C", info.copyright,
       "-m", info.email,
       "-I", info.license.toString)
@@ -212,7 +215,7 @@ object ChefUtil {
     assert(info.name != null)
     assert(info.name.trim.nonEmpty)
 
-    val command = Seq("/usr/bin/chef", "generate", "attribute", info.name)
+    val command = Seq(chef, "generate", "attribute", info.name)
     val pathToOpen = project.getLocation.append(s"/attributes/${info.name}.rb")
 
     createResource(project, command, pathToOpen)
@@ -224,7 +227,7 @@ object ChefUtil {
     assert(info.name != null)
     assert(info.name.trim.nonEmpty)
 
-    val command = Seq("/usr/bin/chef", "generate", "template", info.name)
+    val command = Seq(chef, "generate", "template", info.name)
     val pathToOpen = project.getLocation.append(s"/templates/default/${info.name}")
 
     createResource(project, command, pathToOpen)
@@ -236,7 +239,7 @@ object ChefUtil {
     assert(info.name != null)
     assert(info.name.trim.nonEmpty)
 
-    val command = Seq("/usr/bin/chef", "generate", "file", info.name)
+    val command = Seq(chef, "generate", "file", info.name)
     val pathToOpen = project.getLocation.append(s"/files/default/${info.name}")
 
     createResource(project, command, pathToOpen)
@@ -248,7 +251,7 @@ object ChefUtil {
     assert(info.name != null)
     assert(info.name.trim.nonEmpty)
 
-    val command = Seq("/usr/bin/chef", "generate", "lwrp", info.name,
+    val command = Seq(chef, "generate", "lwrp", info.name,
       "-C", info.copyright,
       "-m", info.email,
       "-I", info.license.toString)

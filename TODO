@@ -4,9 +4,13 @@
 	- How to push to chef (berks, etc)
 	- Where to find berks
 	- Where to find vagrant
+	- Where to find rubocop
+	- Where to find foodcritic
 - Berks methods 
 	- Berks install
 	- Berks upload
 - Kitchen
 	- Create kitchen file
 - Add "add chef nature" menu item
+- Rubocop
+- Foodcritic
